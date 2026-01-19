@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import {
   ArrowRight,
@@ -9,7 +11,7 @@ import {
   Phone,
   ArrowLeft,
 } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 
 const USE_CASES = [
   {
@@ -47,7 +49,7 @@ const USE_CASES = [
 ];
 
 export default function ContactUs() {
-  const navigate = useNavigate();
+  const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
@@ -86,7 +88,7 @@ export default function ContactUs() {
       <div className="max-w-[1600px] mx-auto">
         {/* Back Button */}
         <button
-          onClick={() => navigate("/")}
+          onClick={() => router.push("/")}
           className="mb-8 flex items-center gap-2 text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-colors"
         >
           <ArrowLeft size={20} /> Back
